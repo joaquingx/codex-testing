@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Scraping Overview</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #f5f7fa, #e4ecf7);
+      color: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1.5rem 4rem;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      max-width: 800px;
+    }
+
+    header h1 {
+      font-size: clamp(2.25rem, 4vw, 3rem);
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.125rem;
+      margin: 0;
+    }
+
+    main {
+      width: min(960px, 100%);
+      margin-top: 2.5rem;
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 25px 45px rgba(15, 35, 95, 0.1);
+      border-radius: 16px;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      backdrop-filter: blur(6px);
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin-top: 0;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .summary article {
+      background: linear-gradient(160deg, #4c6ef5, #647dee);
+      color: #fff;
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 12px 24px rgba(76, 110, 245, 0.25);
+    }
+
+    .summary h3 {
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-block: 1.5rem 2rem;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    th,
+    td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    th {
+      background: #dde4ff;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    tbody tr:nth-child(odd) td {
+      background: rgba(236, 242, 255, 0.9);
+    }
+
+    .resource-list {
+      display: grid;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .resource-list a {
+      color: #2d3a8c;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      font-size: 0.9rem;
+      color: #4b5563;
+      text-align: center;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: radial-gradient(circle at top, #0f172a, #020617);
+        color: #e2e8f0;
+      }
+
+      main {
+        background: rgba(15, 23, 42, 0.75);
+      }
+
+      table th {
+        background: rgba(148, 163, 184, 0.3);
+      }
+
+      th,
+      td {
+        background: rgba(15, 23, 42, 0.7);
+      }
+
+      tbody tr:nth-child(odd) td {
+        background: rgba(30, 41, 59, 0.8);
+      }
+
+      .resource-list a {
+        color: #93c5fd;
+      }
+
+      footer {
+        color: #cbd5f5;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Data Scraping Essentials</h1>
+    <p>An at-a-glance guide to understanding what data scraping is, why it matters, and how to approach it responsibly.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>What Is Data Scraping?</h2>
+      <p>
+        Data scraping is the automated process of extracting information from websites or online services. It enables researchers, analysts, and developers to collect structured data for insights, reporting, or powering applications. Modern scrapers use HTTP requests, HTML parsing, APIs, or headless browsers to gather information efficiently.
+      </p>
+    </section>
+
+    <section class="summary">
+      <article>
+        <h3>Use Cases</h3>
+        <p>Market analysis, price monitoring, academic research, and building data-driven products.</p>
+      </article>
+      <article>
+        <h3>Key Tools</h3>
+        <p>Python (BeautifulSoup, Scrapy), JavaScript (Puppeteer), cloud schedulers, and storage services.</p>
+      </article>
+      <article>
+        <h3>Ethics & Compliance</h3>
+        <p>Respect robots.txt, terms of service, rate limits, and avoid personal data when not permitted.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Scraping Workflow Snapshot</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Stage</th>
+            <th>Purpose</th>
+            <th>Example Tools</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Discovery</td>
+            <td>Identify target sites, review structure, and confirm legal guidelines.</td>
+            <td>Site maps, robots.txt, manual inspection</td>
+          </tr>
+          <tr>
+            <td>Extraction</td>
+            <td>Send requests and parse responses into structured data.</td>
+            <td>Requests, BeautifulSoup, Cheerio</td>
+          </tr>
+          <tr>
+            <td>Cleaning</td>
+            <td>Normalize formats, remove duplicates, and validate records.</td>
+            <td>Pandas, OpenRefine</td>
+          </tr>
+          <tr>
+            <td>Storage & Use</td>
+            <td>Persist information for dashboards, models, or archives.</td>
+            <td>PostgreSQL, BigQuery, CSV/JSON</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Best Practices</h2>
+      <ul class="resource-list">
+        <li>Plan for rate limiting and backoff to avoid overloading target servers.</li>
+        <li>Rotate user agents and IP addresses when appropriate and permitted.</li>
+        <li>Log requests and responses for troubleshooting and audits.</li>
+        <li>Cache previously fetched pages to reduce redundant traffic.</li>
+        <li>Respect intellectual property and privacy regulations in every jurisdiction.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Further Reading</h2>
+      <ul class="resource-list">
+        <li><a href="https://moz.com/learn/seo/web-crawlers" target="_blank" rel="noreferrer">Intro to Web Crawlers</a></li>
+        <li><a href="https://developers.google.com/search/docs/crawling-indexing/overview-robotstxt" target="_blank" rel="noreferrer">Google's robots.txt Documentation</a></li>
+        <li><a href="https://scrapy.org/" target="_blank" rel="noreferrer">Scrapy Framework</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built for GitHub Pages &mdash; customize this template to showcase your data scraping projects.</p>
+  </footer>
+</body>
+</html>
